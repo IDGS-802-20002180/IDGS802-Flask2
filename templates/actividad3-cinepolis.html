@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/estilos.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="bootstrap-responsive">
+            <div style="text-align: center;" id="tittle">
+                <h2 class="bootstrap-responsive">Cinepolis</h2>
+
+            </div>
+            <form class="from-horizontal" name="form1" action="/resultado" method="POST">
+            <main>
+                <section id="section1">
+                    <h4>Entradas</h4>
+                    <div class="control-group">
+                        <label for="txtNombre" class="control-label">Nombre:
+                            <input type="text" name="txtNombre" value="">
+                        </label>
+                        <label for="txtCantidad" class="control-label">Cantidad Compradores:
+                            <input type="text" name="txtCantidad" value="">
+                        </label>
+                        <label for="txtTarjeta" class="control-label">tarjeta Cineco:
+                            <input type="radio" name="opcion" value="si">Si
+                            <input type="radio" name="opcion" value="no">No
+                        </label>
+                        <label for="txtCantidadB" class="control-label">Cantidad De Boletos:
+                            <input type="text" name="txtCantidadB" value="">
+                        </label>
+                    </div>
+                </section>
+                <section id="section2">
+                    <h4>Salidas</h4>
+                    <div class="control-group">
+                        <label for="txtValorP" class="control-label">Valor a Pagar:
+                            <input type="text" name="txtTotal" value="{{totalDes}} {{respuesta}}">
+                        </label>
+                    </div>
+
+                </section>
+                <section id="section3">
+                    <h4>Acciones</h4>
+                    <div class="controls">
+                        <button type="submit" class="btn btn-default btn-warning">Procesar
+                        </button>
+                        <button type="submit" class="btn btn-default btn-danger">Salir
+                        </button>
+                    </div>
+
+                </section>
+            </main>
+        </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

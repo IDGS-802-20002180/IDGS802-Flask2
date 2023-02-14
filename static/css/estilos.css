@@ -1,0 +1,45 @@
+h2 {
+    background-color: white;
+    font-family: cursive;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h4 {
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    background-image: url(../img/cinepolis_nuevo_logotipo_001.png);
+    background-size: cover;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+}
+
+#section1 {
+    float: left;
+    border: 2px solid white;
+    padding: 10px;
+}
+
+#section2 {
+    float: right;
+    border: 2px solid white;
+    padding: 6px;
+}
+
+#section3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    border: 2px solid white;
+    padding: 10px;
+}
