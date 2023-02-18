@@ -8,3 +8,13 @@
 </div>
 
 {%endmacro%}
+
+{% macro render_field(field) %}
+<div class="control-group">
+    <div class="controls">
+        {{field.label}}
+        {{field(**kwargs)|safe}}
+    </div>
+</div>
+{%endmacro%}
+

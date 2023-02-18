@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+    {%block content%}
+    
+    <h3>El valor maximo es:{{valorMaximo}} </h3>
+    <h3>El valor minimo es:{{valorMinimo}}</h3>
+    <h3>el promedio es: {{promedio}}</h3>
+    <h3>Las veces que se repiten</h3>
+     <h3> {{repite|safe}}<br></h3>
+     
+    {%endblock%}

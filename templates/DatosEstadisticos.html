@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{%block content%}
+
+{% from "_macros.html" import render_field, render_input%}
+<form name="form1" method="POST" >
+    <div class="control-group">
+        <div class="controls">
+            {{render_field(form.numero)}}
+            <div class="control-group">
+                    
+                <div class="controls">
+                    <input type="submit" name="button" value="Imprimir">
+                </div>
+            </div>
+
+        </div>
+        {% if form.numero.data %}
+        {% for x in range(0, form.numero.data) %}
+        {{ render_input(name="numeros") }}
+        {% endfor %}
+        <input type="submit" name="button" value="Calcular">
+        {%endif%}
+    </div>
+
+</form>
+
+{%endblock%}
