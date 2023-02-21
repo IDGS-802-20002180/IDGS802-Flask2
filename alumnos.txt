@@ -1,0 +1,11 @@
+Hola Mundo!!!!MarioMarioPedro
+Mario
+Pedroalumnoalumnoalumnoalumnoalumnoalumnoalumnoalumno{"Matricula": 12345, "Nombre": "Mario", "Apellidos": "Lopez", "Correo": "Daniellizama17@gmail.com"}Matricula: 12345
+Nombre: Mario
+Apellidos: Lopez
+Correo: Daniellizama17@gmail.com
+
+Matricula: 12345
+Nombre: Mario
+Apellidos: Lopez
+Correo: Daniellizama17@gmail.com

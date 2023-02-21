@@ -17,7 +17,7 @@ def Alumno():
     alum_form=forms.UserForm(request.form)
     mat=''
     nom=''
-    if request.method=="POST":
+    if request.method=="POST" and alum_form.validate():
         
         mat=alum_form.matricula.data
         nom=alum_form.nombre.data

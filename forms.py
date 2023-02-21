@@ -9,10 +9,8 @@ class UserForm(Form):
     
 
     matricula=StringField('Matricula',[validators.DataRequired(message='La Matricula es Requerida')])
-    nombre=StringField('Nombre')
+    nombre=StringField('Nombre',[validators.DataRequired(message='Este campo no puede quedarse Vacio'),
+                                 validators.length(min=5,max=15,message='Ingresa un valor maximo')])
     apaterno=StringField('Apaterno')
     amaterno=StringField('Amaterno')
     email=EmailField('Correo')
-
-
-
