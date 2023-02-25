@@ -2,9 +2,10 @@
 {% extends "layout.html" %}
     {%block content%}
 
-        <div class="col-xs-6">
+        <div class="col-xs-6" id="divAl">
             {%from "_macros.html" import render_field%}
             <form action="" method="POST" novalidate>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
             <div class="from-group">
                 {{render_field(form.matricula)}}
             </div>
@@ -16,7 +17,7 @@
             <input type="submit" value="Registrar">
         </form>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6" id="divAlum2">
             <h3>Matricula:{{mat}}</h3>
             <h3>Nombre:{{nom}}</h3>
         </div>

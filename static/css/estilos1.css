@@ -1,0 +1,89 @@
+body {
+    background-image: url(../img/fondo.jpg);
+    background-size: cover;
+}
+
+.navbar {
+    background-color: cornflowerblue; /* color de fondo */
+    color: #fff; /* color del texto */
+    
+}
+.input-field {
+    display: inline-block;
+    margin-right: 10px; /* Opcional: Agregar un margen a la derecha para separar el campo de entrada y el mensaje */
+}
+
+#section1 {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#section2 {
+    background-color: #333;
+    color: #fff;
+}
+
+#section1 {
+    background-color: #333;
+    color: #fff;
+}
+
+#section2 {
+    background-color: #333;
+    color: #fff;
+}
+
+#section1 {
+    float: left;
+    border: 2px solid white;
+    padding: 40px;
+}
+
+#section2 {
+    float: right;
+    border: 2px solid white;
+    padding: 40px;
+}
+
+input[type="submit"] {
+    background-color: orangered;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+h1 {
+    color:greenyellow;
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-color: gold;
+    border-color: goldenrod;
+  }
+#divAl{
+    background-color: #333;
+    color: #fff;
+    border: 2px solid white;
+    padding: 40px;
+}
+
+#divAlum2{
+    background-color: #333;
+    color: #fff;
+    border: 2px solid white;
+    padding: 40px; 
+}

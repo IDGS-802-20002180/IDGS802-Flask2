@@ -1,10 +1,53 @@
 from flask import Flask, render_template
 from flask import request
-from collections import Counter
+from flask_wtf.csrf import CSRFProtect
+from flask import make_response
+from flask import flash
 
 import forms
 import DatosEstadis
+import Dicc
 app=Flask(__name__)
+app.config['SECRET_KEY']="Esta es una clave encriptada"
+csrf=CSRFProtect()
+
+@app.route("/cookies",methods=['GET','POST'])
+def cookies():
+    print('numero2')
+
+    reg_user=forms.LoginForm(request.form)
+    datos=''
+   
+    if request.method=='POST' and reg_user.validate():
+        user=reg_user.username.data
+        passw=reg_user.password.data
+        datos=user+'@'+passw
+        succes_message='Bienvenido {}'.format(user)
+        flash(succes_message)
+        
+    response=make_response(render_template("cookies.html",form=reg_user))
+    response.set_cookie('datos_user',datos)
+    return response
+
+@app.after_request
+def after_request(response):
+    print('numero3')
+    return response
+
+@app.errorhandler(404)
+def no_encontrada(e):
+    return render_template('404.html'),404
+
+@app.before_request
+def before_request():
+    print('numero1')
+
+@app.route("/saludo")
+def saludo():
+    valor_cookie=request.cookies.get('datos_user')
+    nombre=valor_cookie.split('@')
+    return render_template("saludo.html",nom=nombre[0])
+
 
 @app.route("/formulario2",methods=["GET"])
 def formulario2():
@@ -67,5 +110,52 @@ def DatosEstadisticos():
 
     return render_template("DatosEstadisticos.html",form=DE)
 
+
+@app.route("/Diccionario",methods=["GET","POST"])
+def Diccionario():
+    alum_form=Dicc.UserForm(request.form)
+    idiom_form=Dicc.idiomas(request.form)
+    btn = request.form.get("Guardar")
+    btn2= request.form.get("Buscar")
+    if request.method=="POST" and 'Guardar' in request.form :
+        if alum_form.validate():
+            
+            if btn=='Guardar':
+                ing = request.form['ingles']
+                esp = request.form['espanol']
+                g=open('diccionarios.txt', 'a')
+                g.write(ing.lower() + ' ' + esp.lower() + '\n')
+            
+                return render_template("Diccionario.html",form=alum_form,form1=idiom_form)
+    if request.method=="POST" and 'Buscar' in request.form:
+        if idiom_form.validate():
+            
+            ingles=None
+            espanol=None
+            if btn2=='Buscar':
+                idi=idiom_form.idioma.data
+                lenguage=idiom_form.lenguage.data.lower()
+                f=open('diccionarios.txt','r')
+                lineas=f.readlines()
+                mensaje=''
+                for linea in lineas:
+                    ingles,espanol = linea.strip().lower().split(' ') 
+                
+                    if idi=='es':
+                        if lenguage==ingles:
+                            mensaje = f'la traduccion de "{ingles.upper()}" es "{espanol.upper()}".'
+                            break 
+                    elif idi=='in':
+                        if lenguage==espanol:
+                            mensaje = f'la traduccion de "{espanol.upper()}" es "{ingles.upper()}".'
+                            break
+                if not mensaje:
+                    mensaje="No existe la palabra en el Diccionario"
+                    f.close()
+                return render_template("Diccionario.html",form=alum_form, form1=idiom_form, mensaje=mensaje)
+                
+    return render_template("Diccionario.html",form=alum_form ,form1=idiom_form)
+
 if __name__ == "__main__":
+    csrf.init_app(app)
     app.run(debug=True, port=3000)
