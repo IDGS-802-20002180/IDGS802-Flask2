@@ -10,9 +10,14 @@ auto car
 shoes zapatos
 sad triste
 mouse raton
-hair pelo
 run correr
 yellow amarillo
 orange naranja
 zing cantar
 black negro
+bye adios
+purple voileta
+gold oro
+silver plata
+ball pelota
+hair pelo

@@ -1,6 +1,7 @@
 
 {% extends "layout.html" %}
     {%block content%}
+    
                 <main>
                 <section id="section1">
                     
@@ -29,6 +30,11 @@
                 {% for subfield in form1.idioma %}
                     {{ subfield() }} {{ subfield.label }}<br>
                 {% endfor %}
+                {%for error in form1.idioma.errors%}
+                        <li style="color: red;">
+                        {{error}}
+                        </li>
+                    {%endfor%}
                 <div class="input-field" style="display: inline-block;">
                     {{render_field(form1.lenguage)}} =<b> {{mensaje}}</b>
                 </div>
@@ -39,8 +45,9 @@
         </form>
         </div>
     </section>
+                
         </main>
-            
+    
         
         
     {%endblock%}

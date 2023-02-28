@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class="block3">
+
+    <div class="col-xs-6" id="divR">
+        <div class="bootstrap-responsive">
+            <span>
+                <h1>Calculadora de omhs</h1>
+            </span>
+            {%from "_macros.html" import render_field%}
+            <form action="" method="POST" novalidate>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                <div class="control-group">
+                    <img src="../static/img/ColoresResistenciaCodigos.jpg" alt="Tabla de calculo de resistencia">
+                </div>
+
+                <div class="control-group">
+                    {{ form.linea1.label }}{{ form.linea1 }}
+                    
+                    {%for error in form.linea1.errors%}
+                        <li style="color: red;">
+                        {{error}}
+                        </li>
+                    {%endfor%}
+                    
+                </div>
+                <div class="control-group">
+                    {{ form.linea2.label }}
+                    {{ form.linea2 }}
+                    {%for error in form.linea2.errors%}
+                        <li style="color: red;">
+                        {{error}}
+                        </li>
+                    {%endfor%}
+                </div>
+                <div class="control-group">
+                    {{ form.linea3.label }}
+                    {{ form.linea3 }}
+                    {%for error in form.linea3.errors%}
+                        <li style="color: red;">
+                        {{error}}
+                        </li>
+                    {%endfor%}
+                </div>
+                <div class="control-group">
+                    {{ form.linea4.label }}
+                    {% for subfield in form.linea4 %}
+                    {{ subfield() }} {{ subfield.label }}<br>
+                    {% endfor %}
+                    {%for error in form.linea4.errors%}
+                        <li style="color: red;">
+                        {{error}}
+                        </li>
+                    {%endfor%}
+
+                </div>
+                <input type="submit" name="guardar" value="Calcular valor">
+                <input type="submit" name="limpiar" value="limpiar">
+
+            </form>
+        </div>
+        <div class="control-group">
+            <table id="tbl1">
+                <tr>
+                    <th>Banda 1</th>
+                    <th>Banda 2</th>
+                    <th>Banda 3</th>
+                    <th>Banda 4</th>
+                    <th>Valor</th>
+                    <th>Valor Maximo</th>
+                    <th>Valor Minimo</th>
+                </tr>
+                <tr>
+                    <td style="{{td_style}}">{{linea1}}</td>
+                    <td style="{{td_style2}}">{{linea2}}</td>
+                    <td style="{{td_style3}}">{{linea3}}</td>
+                    <td style="{{td_style4}}">{{linea4}}</td>
+                    <td>{{omhs}}</td>
+                    <td>{{omhsMx}}</td>
+                    <td>{{omhsMn}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

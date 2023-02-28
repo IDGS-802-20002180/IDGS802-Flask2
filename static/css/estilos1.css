@@ -1,7 +1,13 @@
 body {
-    background-image: url(../img/fondo.jpg);
-    background-size: cover;
+    background-color: cornflowerblue;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
+
 
 .navbar {
     background-color: cornflowerblue; /* color de fondo */
@@ -79,6 +85,15 @@ input[type="radio"]:checked {
     color: #fff;
     border: 2px solid white;
     padding: 40px;
+    text-align: center;
+}
+
+#divR{
+    background-color: #333;
+    color: #fff;
+    border: 2px solid white;
+    padding: 40px;
+    text-align: center;
 }
 
 #divAlum2{
@@ -86,4 +101,37 @@ input[type="radio"]:checked {
     color: #fff;
     border: 2px solid white;
     padding: 40px; 
+}
+
+#tbl1{
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background-color: darkblue;
+    color: white;
+    
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+main {
+    background-image: url('../img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
 }
